@@ -21,6 +21,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_COMMAND(ID_HELP_EDITVIEW, &CMainFrame::OnHelpEditview)
 	ON_COMMAND(ID_HELP_HTMLVIEW, &CMainFrame::OnHelpHtmlview)
 	ON_COMMAND(ID_HELP_LISTVIEW, &CMainFrame::OnHelpListview)
+	ON_COMMAND(ID_HELP_SCRLVIEW, &CMainFrame::OnHelpScrlview)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -105,6 +106,7 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 	m_pwndHtmlView = new CMyHtmlView;
 	m_pwndEditView = new CMyEditView;
 	m_pwndListViewForMenu = new CMyListViewForMenu;
+	m_pwndScrollView = new CMyScrollView;
 
 	m_pwndHtmlView->Create(NULL, NULL, WS_CHILD | WS_VISIBLE,
 		CFrameWnd::rectDefault, this, VIEWID_HTML, pContext);
@@ -114,6 +116,9 @@ BOOL CMainFrame::OnCreateClient(LPCREATESTRUCT lpcs, CCreateContext* pContext)
 
 	m_pwndListViewForMenu->Create(NULL, NULL, WS_CHILD | WS_VISIBLE,
 		CFrameWnd::rectDefault, this, VIEWID_LIST, pContext);
+
+	m_pwndScrollView->Create(NULL, NULL, WS_CHILD | WS_VISIBLE,
+		CFrameWnd::rectDefault, this, VIEWID_SCRL, pContext);
 
 	return CFrameWnd::OnCreateClient(lpcs, pContext);
 }
@@ -136,6 +141,9 @@ void CMainFrame::SwitchView(int nId)
 	case VIEWID_LIST:
 		pNewView = (CView*)m_pwndListViewForMenu;
 		break;
+	case VIEWID_SCRL:
+		pNewView = (CView*)m_pwndScrollView;
+		break;
 	default:
 		break;
 	}
@@ -148,6 +156,7 @@ void CMainFrame::SwitchView(int nId)
 
 		pNewView->SetDlgCtrlID(AFX_IDW_PANE_FIRST);
 		pNewView->ShowWindow(SW_SHOW);
+
 		SetActiveView(pNewView);
 		RecalcLayout();
 	}
@@ -172,4 +181,11 @@ void CMainFrame::OnHelpListview()
 {
 	// TODO: Add your command handler code here
 	SwitchView(VIEWID_LIST);
+}
+
+
+void CMainFrame::OnHelpScrlview()
+{
+	// TODO: Add your command handler code here
+	SwitchView(VIEWID_SCRL);
 }

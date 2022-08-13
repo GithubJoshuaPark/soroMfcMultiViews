@@ -5,13 +5,15 @@
 #pragma once
 #include "CMyHtmlView.h"
 #include "CMyEditView.h"
-#include "CMyListview.h"
 #include "CMyListviewForMenu.h"
+#include "CMyScrollView.h"
+
 
 #define VIEWID_DEFAULT AFX_IDW_PANE_FIRST
 #define VIEWID_HTML    AFX_IDW_PANE_FIRST + 10
 #define VIEWID_EDIT    AFX_IDW_PANE_FIRST + 20
 #define VIEWID_LIST    AFX_IDW_PANE_FIRST + 30
+#define VIEWID_SCRL    AFX_IDW_PANE_FIRST + 40
 
 class CMainFrame : public CFrameWnd
 {
@@ -24,8 +26,8 @@ protected: // create from serialization only
 public:
 	CMyHtmlView* m_pwndHtmlView;
 	CMyEditView* m_pwndEditView;
-	CMyListView* m_pwndListView;
 	CMyListViewForMenu* m_pwndListViewForMenu;
+	CMyScrollView* m_pwndScrollView;
 
 // Operations
 public:
@@ -59,6 +61,7 @@ public:
 	afx_msg void OnHelpEditview();
 	afx_msg void OnHelpHtmlview();
 	afx_msg void OnHelpListview();
+	afx_msg void OnHelpScrlview();
 };
 
 

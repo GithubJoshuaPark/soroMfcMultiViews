@@ -51,6 +51,9 @@
     <ClInclude Include="CMyListViewForMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CMyScrollView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="soroMfcMultiViews.cpp">
@@ -78,6 +81,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CMyListViewForMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CMyScrollView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -121,6 +127,12 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\Anatom5-People-Disability-Walking.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\coding.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\coding16001200.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

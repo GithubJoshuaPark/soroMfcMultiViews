@@ -70,3 +70,12 @@ int CMyEditView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	return 0;
 }
+
+
+void CMyEditView::PostNcDestroy()
+{
+	// TODO: Add your specialized code here and/or call the base class
+	delete this;
+
+	//CEditView::PostNcDestroy();
+}
